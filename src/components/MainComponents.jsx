@@ -35,20 +35,26 @@ function MainComponents() {
   }
 
   return (
-    <div>
+    <div className="inputFields">
       <h1>Input Fields</h1>
-      <GeneralInfo
-        userInfo={resumeData.userInfo}
-        updateGeneralInfo={updateGeneralInfo}
-      />
-      <EducationInfo
-        userEducation={resumeData.userEducation}
-        updateEducationInfo={updateEducationInfo}
-      />
-      <WorkInfo
-        userWork={resumeData.userWork}
-        updateWorkInfo={updateWorkInfo}
-      />
+      <section className="generalSection">
+        <GeneralInfo
+          userInfo={resumeData.userInfo}
+          updateGeneralInfo={updateGeneralInfo}
+        />
+      </section>
+      <section className="educationSection">
+        <EducationInfo
+          userEducation={resumeData.userEducation}
+          updateEducationInfo={updateEducationInfo}
+        />
+      </section>
+      <section className="workSection">
+        <WorkInfo
+          userWork={resumeData.userWork}
+          updateWorkInfo={updateWorkInfo}
+        />
+      </section>
     </div>
   );
 }

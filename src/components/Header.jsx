@@ -1,7 +1,7 @@
 function Header() {
   return (
     <header>
-      <h1 class="appHeader">Resume Generator</h1>
+      <h1 className="appHeader">Resume Generator</h1>
     </header>
   );
 }

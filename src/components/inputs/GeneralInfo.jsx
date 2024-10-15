@@ -1,20 +1,24 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-function GeneralInfo(userInfo, updateGeneralInfo) {
+function GeneralInfo({ userInfo, updateGeneralInfo }) {
   const [general, setGeneral] = useState(userInfo);
 
   function handleChange(e) {
     const { name, value } = e.target;
+    // spread a copy of the main struct and
+    //replace discrepancies btwn inputs
     setGeneral({ ...general, [name]: value });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
+    //send it to change main struct but dont clear it
     updateGeneralInfo(general);
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="generalForm" onSubmit={handleSubmit}>
       <input
         name="userName"
         value={general.userName}
