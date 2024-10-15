@@ -20,28 +20,17 @@ function MainComponents() {
   };
 
   function updateGeneralInfo(updatedInfo) {
-    resumeData.userInfo = {
-      // First spread: copy everything from the existing userInfo
-      ...resumeData.userInfo,
-      // Second spread: overwrite any matching fields (like userPhone)
-      ...updatedInfo,
-    };
+    resumeData.userInfo = updatedInfo;
     forceUpdate();
   }
 
   function updateEducationInfo(updatedEducation) {
-    resumeData.userEducation = {
-      ...resumeData.userEducation,
-      ...updatedEducation,
-    };
+    resumeData.userEducation.push(updatedEducation);
     forceUpdate();
   }
 
   function updateWorkInfo(updatedWork) {
-    resumeData.userWork = {
-      ...resumeData.userWork,
-      ...updatedWork,
-    };
+    resumeData.userWork.push(updatedWork);
     forceUpdate();
   }
 
@@ -63,3 +52,5 @@ function MainComponents() {
     </div>
   );
 }
+
+export default MainComponents;
