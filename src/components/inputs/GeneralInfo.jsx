@@ -19,6 +19,7 @@ function GeneralInfo({ userInfo, updateGeneralInfo }) {
 
   return (
     <form className="generalForm" onSubmit={handleSubmit}>
+      <h2 className="generalHeader">General Information</h2>
       <input
         name="userName"
         value={general.userName}

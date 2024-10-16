@@ -35,3 +35,29 @@ header {
   align-content: center;
   background-color: black;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+section {
+  padding: 0.8rem;
+}
+
+.main {
+  display: flex;
+  padding: 1rem;
+}
+
+.inputFields {
+  flex: 2;
+}
+
+.displayFields {
+  flex: 4;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

@@ -27,6 +27,7 @@ function EducationInfo({ userEducation, updateEducationInfo }) {
 
   return (
     <form className="educationForm" onSubmit={handleSubmit}>
+      <h2 className="educationHeader">Education Information</h2>
       <input
         name="educationName"
         value={education.educationName}

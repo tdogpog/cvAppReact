@@ -28,6 +28,7 @@ function WorkInfo({ userWork, updateWorkInfo }) {
 
   return (
     <form className="workForm" onSubmit={handleSubmit}>
+      <h2 className="workHeader">Work Information</h2>
       <input
         name="workCompany"
         value={work.workCompany}

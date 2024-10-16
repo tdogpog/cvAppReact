@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+//input components
 import GeneralInfo from "./inputs/GeneralInfo.jsx";
 import EducationInfo from "./inputs/EducationInfo.jsx";
 import WorkInfo from "./inputs/WorkInfo.jsx";
+//display components
+import DisplayGeneral from "./display/DisplayGeneral.jsx";
+import DisplayEducation from "./display/DisplayEducation.jsx";
+import DisplayWork from "./display/DisplayWork.jsx";
 
 //central data object
 import resumeData from "../resumeData";
@@ -35,26 +40,38 @@ function MainComponents() {
   }
 
   return (
-    <div className="inputFields">
-      <h1>Input Fields</h1>
-      <section className="generalSection">
-        <GeneralInfo
-          userInfo={resumeData.userInfo}
-          updateGeneralInfo={updateGeneralInfo}
-        />
-      </section>
-      <section className="educationSection">
-        <EducationInfo
-          userEducation={resumeData.userEducation}
-          updateEducationInfo={updateEducationInfo}
-        />
-      </section>
-      <section className="workSection">
-        <WorkInfo
-          userWork={resumeData.userWork}
-          updateWorkInfo={updateWorkInfo}
-        />
-      </section>
+    <div className="main">
+      <div className="inputFields">
+        <section className="generalSection">
+          <GeneralInfo
+            userInfo={resumeData.userInfo}
+            updateGeneralInfo={updateGeneralInfo}
+          />
+        </section>
+        <section className="educationSection">
+          <EducationInfo
+            userEducation={resumeData.userEducation}
+            updateEducationInfo={updateEducationInfo}
+          />
+        </section>
+        <section className="workSection">
+          <WorkInfo
+            userWork={resumeData.userWork}
+            updateWorkInfo={updateWorkInfo}
+          />
+        </section>
+      </div>
+      <div className="displayFields">
+        <div className="displayGeneral">
+          <DisplayGeneral resumeData={resumeData} />
+        </div>
+        <div className="displayEducation">
+          <DisplayEducation resumeData={resumeData} />
+        </div>
+        <div className="displayWork">
+          <DisplayWork resumeData={resumeData} />
+        </div>
+      </div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ const resumeData = {
     userPhone: "714-523-3523",
   },
 
-  usereducation: [
+  userEducation: [
     {
       educationName: "Generic University",
       educationStudied: "Generic Degree",
@@ -23,6 +23,34 @@ const resumeData = {
 
   userWork: [
     {
+      workKey: crypto.randomUUID(),
+      workCompany: "Generic Company",
+      workPosition: "Generic Position",
+      workStart: "May 2024",
+      workEnd: "May 2024",
+      workDuties: [
+        {
+          workDutiesKey: crypto.randomUUID(),
+          workDutiesDescription:
+            "Generic informatino about litmus and chaptstick vitamins and other ingredients",
+        },
+
+        {
+          workDutiesKey: crypto.randomUUID(),
+          workDutiesDescription:
+            "Generic informatino about litmus and chaptstick vitamins and other ingredients",
+        },
+
+        {
+          workDutiesKey: crypto.randomUUID(),
+          workDutiesDescription:
+            "Generic informatino about litmus and chaptstick vitamins and other ingredients",
+        },
+      ],
+    },
+
+    {
+      workKey: crypto.randomUUID(),
       workCompany: "Generic Company",
       workPosition: "Generic Position",
       workStart: "May 2024",
