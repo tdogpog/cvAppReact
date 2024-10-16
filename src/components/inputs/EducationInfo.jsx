@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 function EducationInfo({ userEducation, updateEducationInfo }) {
   const [education, setEducation] = useState({
-    educationName: " ",
-    educationStudied: " ",
-    educationGraduation: " ",
+    educationName: "",
+    educationStudied: "",
+    educationGraduation: "",
     educationKey: crypto.randomUUID(),
   });
 
@@ -18,9 +18,9 @@ function EducationInfo({ userEducation, updateEducationInfo }) {
     updateEducationInfo(education);
     // reset form
     setEducation({
-      educationName: " ",
-      educationStudied: " ",
-      educationGraduation: " ",
+      educationName: "",
+      educationStudied: "",
+      educationGraduation: "",
       educationKey: crypto.randomUUID(),
     });
   };
@@ -46,6 +46,7 @@ function EducationInfo({ userEducation, updateEducationInfo }) {
         onChange={handleChange}
         placeholder="Graduation Date"
       />
+
       <button type="submit">Add Education</button>
     </form>
   );

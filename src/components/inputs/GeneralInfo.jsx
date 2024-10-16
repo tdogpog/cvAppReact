@@ -24,19 +24,19 @@ function GeneralInfo({ userInfo, updateGeneralInfo }) {
         name="userName"
         value={general.userName}
         onChange={handleChange}
-        placeholder={general.userName}
+        placeholder="Full Name"
       />
       <input
         name="userEmail"
         value={general.userEmail}
         onChange={handleChange}
-        placeholder={general.userEmail}
+        placeholder="email"
       />
       <input
         name="userPhone"
         value={general.userPhone}
         onChange={handleChange}
-        placeholder={general.userPhone}
+        placeholder="Phone Number"
       />
       <button type="submit">Save </button>
     </form>

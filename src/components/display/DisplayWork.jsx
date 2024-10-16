@@ -3,10 +3,9 @@ function DisplayWork({ resumeData }) {
     <div className="workSection">
       {resumeData.userWork.map((work) => (
         <div key={work.workKey}>
-          <p>{work.workName || "Company Name"}</p>
+          <p>{work.workCompany || "Company Name"}</p>
           <p>
-            {work.workStart || "Start Date"}
-            {work.workEnd || "End Date"}
+            {work.workStart || "Start Date"} - {work.workEnd || "End Date"}
           </p>
           <div className="workSectionSecondary">
             <p>{work.workPosition || "Work Title"}</p>

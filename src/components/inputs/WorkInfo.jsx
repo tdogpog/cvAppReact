@@ -2,10 +2,12 @@ import React, { useState } from "react";
 
 function WorkInfo({ userWork, updateWorkInfo }) {
   const [work, setWork] = useState({
-    workCompany: " ",
-    workPosition: " ",
-    workStart: " ",
-    workEnd: " ",
+    workKey: crypto.randomUUID(),
+    workCompany: "",
+    workPosition: "",
+    workStart: "",
+    workEnd: "",
+    workDuties: [],
   });
 
   const handleChange = (e) => {
@@ -19,11 +21,40 @@ function WorkInfo({ userWork, updateWorkInfo }) {
     updateWorkInfo(work);
     // reset form
     setWork({
-      workCompany: " ",
-      workPosition: " ",
-      workStart: " ",
-      workEnd: " ",
+      workKey: crypto.randomUUID(),
+      workCompany: "",
+      workPosition: "",
+      workStart: "",
+      workEnd: "",
+      workDuties: [],
     });
+  };
+
+  //this is basically addressing a new entry into workDuties
+  //spread work, edit workDuties
+  //spread workDuties, edit/add in a new work duty
+  //first nested spread
+  const addResponsibilities = () => {
+    setWork({
+      ...work,
+      workDuties: [
+        ...work.workDuties,
+        { workDutiesKey: crypto.randomUUID(), workDutiesDescription: "" },
+      ],
+    });
+  };
+
+  // grab the index of the responsiblitiy you're editing and its event value
+  const handleDutyChange = (index, value) => {
+    //get a map of the duties
+    //find the index in this map that is === i
+    //update it with a spread using event obj vaue
+    //otherwise just keep as is
+    const updatedDuties = work.workDuties.map((duty, i) =>
+      i === index ? { ...duty, workDutiesDescription: value } : duty
+    );
+    //regenerate the component with these new duties
+    setWork({ ...work, workDuties: updatedDuties });
   };
 
   return (
@@ -43,18 +74,35 @@ function WorkInfo({ userWork, updateWorkInfo }) {
       />
       <input
         name="workStart"
-        type="date"
         value={work.workStart}
         onChange={handleChange}
         placeholder="Start Date"
       />
       <input
         name="workEnd"
-        type="date"
         value={work.workEnd}
         onChange={handleChange}
         placeholder="End Date"
       />
+      <div className="responsibilites">
+        <h3>Responsibilites</h3>
+        <button
+          type="button"
+          onClick={addResponsibilities}
+          id="addResponsibilities"
+        >
+          Add Responsibilites
+        </button>
+        {work.workDuties.map((duty, index) => (
+          <input
+            key={duty.workDutiesKey}
+            value={duty.workDutiesDescription}
+            onChange={(e) => handleDutyChange(index, e.target.value)}
+            placeholder="Responsibility"
+          ></input>
+        ))}
+      </div>
+      <p></p>
       <button type="submit">Add Work Experience</button>
     </form>
   );
