@@ -44,6 +44,15 @@ function WorkInfo({ userWork, updateWorkInfo }) {
     });
   };
 
+  const removeResponsibilities = () => {
+    if (work.workDuties.length > 0) {
+      setWork({
+        ...work,
+        workDuties: work.workDuties.slice(0, -1),
+      });
+    }
+  };
+
   // grab the index of the responsiblitiy you're editing and its event value
   const handleDutyChange = (index, value) => {
     //get a map of the duties
@@ -56,6 +65,8 @@ function WorkInfo({ userWork, updateWorkInfo }) {
     //regenerate the component with these new duties
     setWork({ ...work, workDuties: updatedDuties });
   };
+
+  console.log(work.workDuties.map((duty) => duty.workDutiesKey));
 
   return (
     <form className="workForm" onSubmit={handleSubmit}>
@@ -84,14 +95,21 @@ function WorkInfo({ userWork, updateWorkInfo }) {
         onChange={handleChange}
         placeholder="End Date"
       />
-      <div className="responsibilites">
-        <h3>Responsibilites</h3>
+      <div className="responsibilities">
+        <h3>Work Responsibilites</h3>
         <button
           type="button"
           onClick={addResponsibilities}
           id="addResponsibilities"
         >
-          Add Responsibilites
+          Add Responsibility
+        </button>
+        <button
+          type="button"
+          onClick={removeResponsibilities}
+          id="removeResponsibilities"
+        >
+          Remove Responsibility
         </button>
         {work.workDuties.map((duty, index) => (
           <input

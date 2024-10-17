@@ -32,19 +32,19 @@ const resumeData = {
         {
           workDutiesKey: crypto.randomUUID(),
           workDutiesDescription:
-            "Generic informatino about litmus and chaptstick vitamins and other ingredients",
+            "Generic information about litmus and chaptstick vitamins and other ingredients",
         },
 
         {
           workDutiesKey: crypto.randomUUID(),
           workDutiesDescription:
-            "Generic informatino about litmus and chaptstick vitamins and other ingredients",
+            "Generic information about litmus and chaptstick vitamins and other ingredients",
         },
 
         {
           workDutiesKey: crypto.randomUUID(),
           workDutiesDescription:
-            "Generic informatino about litmus and chaptstick vitamins and other ingredients",
+            "Generic information about litmus and chaptstick vitamins and other ingredients",
         },
       ],
     },
@@ -59,19 +59,19 @@ const resumeData = {
         {
           workDutiesKey: crypto.randomUUID(),
           workDutiesDescription:
-            "Generic informatino about litmus and chaptstick vitamins and other ingredients",
+            "Generic information about litmus and chaptstick vitamins and other ingredients",
         },
 
         {
           workDutiesKey: crypto.randomUUID(),
           workDutiesDescription:
-            "Generic informatino about litmus and chaptstick vitamins and other ingredients",
+            "Generic information about litmus and chaptstick vitamins and other ingredients",
         },
 
         {
           workDutiesKey: crypto.randomUUID(),
           workDutiesDescription:
-            "Generic informatino about litmus and chaptstick vitamins and other ingredients",
+            "Generic information about litmus and chaptstick vitamins and other ingredients",
         },
       ],
     },
