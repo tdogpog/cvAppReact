@@ -1,6 +1,6 @@
 function DisplayGeneral({ resumeData }) {
   return (
-    <div className="generalSection">
+    <div className="generalSectionDisplay">
       <p>{resumeData.userInfo.userName || "New Resume"}</p>
       <div className="generalSectionSecondary">
         <p>{resumeData.userInfo.userEmail || "user@email.com"}</p>

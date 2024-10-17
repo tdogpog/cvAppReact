@@ -1,6 +1,6 @@
 function DisplayEducation({ resumeData }) {
   return (
-    <div className="educationSection">
+    <div className="educationSectionDisplay">
       {resumeData.userEducation.map((education) => (
         <div key={education.educationKey} className="educationItem">
           <p>{education.educationName || "University Here"}</p>

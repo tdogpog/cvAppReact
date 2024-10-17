@@ -62,14 +62,16 @@ function MainComponents() {
         </section>
       </div>
       <div className="displayFields">
-        <div className="displayGeneral">
-          <DisplayGeneral resumeData={resumeData} />
-        </div>
-        <div className="displayEducation">
-          <DisplayEducation resumeData={resumeData} />
-        </div>
-        <div className="displayWork">
-          <DisplayWork resumeData={resumeData} />
+        <div className="displayContainer">
+          <div className="displayGeneral">
+            <DisplayGeneral resumeData={resumeData} />
+          </div>
+          <div className="displayEducation">
+            <DisplayEducation resumeData={resumeData} />
+          </div>
+          <div className="displayWork">
+            <DisplayWork resumeData={resumeData} />
+          </div>
         </div>
       </div>
     </div>

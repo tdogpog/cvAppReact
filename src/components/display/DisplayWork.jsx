@@ -1,6 +1,6 @@
 function DisplayWork({ resumeData }) {
   return (
-    <div className="workSection">
+    <div className="workSectionDisplay">
       {resumeData.userWork.map((work) => (
         <div className="workItem" key={work.workKey}>
           <p>{work.workCompany || "Company Name"}</p>

@@ -49,10 +49,29 @@ section {
 .main {
   display: flex;
   padding: 1rem;
+  gap: 3rem;
 }
 
 .inputFields {
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.generalSection {
+  background-color: grey;
+  border-radius: 4px;
+}
+
+.educationSection {
+  background-color: grey;
+  border-radius: 4px;
+}
+
+.workSection {
+  background-color: grey;
+  border-radius: 4px;
 }
 
 .displayFields {
@@ -60,10 +79,43 @@ section {
   display: flex;
   align-items: center;
   flex-direction: column;
+  color: black;
+}
+
+.displayContainer {
+  background-color: white;
+  padding: 1rem;
 }
 
 .responsibilities {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.displayGeneral {
+  transition: box-shadow 0.3s ease;
+  padding: 5px;
+}
+
+.displayGeneral:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.educationItem {
+  transition: box-shadow 0.3s ease;
+  padding: 5px;
+}
+
+.educationItem:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.workItem {
+  transition: box-shadow 0.3s ease;
+  padding: 5px;
+}
+
+.workItem:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
