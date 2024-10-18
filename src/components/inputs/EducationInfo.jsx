@@ -13,9 +13,18 @@ function EducationInfo({
     educationKey: crypto.randomUUID(),
   });
 
+  // need useEffect to prevent an infinite loop
+
   useEffect(() => {
     if (editEducation) {
-      setEducation(editEducation);
+      setEducation({
+        ...editEducation,
+        // Ensure default values are set for editing
+        educationName: editEducation.educationName || "University",
+        educationStudied: editEducation.educationStudied || "Degree",
+        educationGraduation:
+          editEducation.educationGraduation || "Graduation Date",
+      });
     }
   }, [editEducation]);
 
@@ -50,16 +59,16 @@ function EducationInfo({
         placeholder="School Name"
       />
       <input
-        name="educationStudied"
-        value={education.educationStudied}
-        onChange={handleChange}
-        placeholder="Degree"
-      />
-      <input
         name="educationGraduation"
         value={education.educationGraduation}
         onChange={handleChange}
         placeholder="Graduation Date"
+      />
+      <input
+        name="educationStudied"
+        value={education.educationStudied}
+        onChange={handleChange}
+        placeholder="Degree"
       />
 
       <button type="submit">Save Education</button>

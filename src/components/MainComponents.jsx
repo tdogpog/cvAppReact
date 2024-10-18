@@ -22,6 +22,16 @@ function MainComponents() {
 
   const [editEducation, setEditEducation] = useState(null);
 
+  const [editWork, setEditWork] = useState(null);
+
+  function handleWorkClick(workItem) {
+    setEditWork(workItem);
+  }
+
+  function handleEducationClick(educationItem) {
+    setEditEducation(educationItem);
+  }
+
   const forceUpdate = () => {
     setDummyState((prev) => prev + 1);
   };
@@ -36,7 +46,7 @@ function MainComponents() {
       const index = resumeData.userEducation.findIndex(
         (education) => education.educationKey === editEducation.educationKey
       );
-      //could cause issues, spread/direct write conflict
+
       resumeData.userEducation[index] = {
         ...resumeData.userEducation[index],
 
@@ -50,7 +60,19 @@ function MainComponents() {
   }
 
   function updateWorkInfo(updatedWork) {
-    resumeData.userWork.push(updatedWork);
+    if (editWork) {
+      const index = resumeData.userWork.findIndex(
+        (workItem) => workItem.workKey === editWork.workKey
+      );
+
+      resumeData.userWork[index] = {
+        ...resumeData.userWork[index],
+        ...updatedWork,
+      };
+    } else {
+      resumeData.userWork.push(updatedWork);
+    }
+    setEditWork(null);
     forceUpdate();
   }
 
@@ -66,10 +88,6 @@ function MainComponents() {
       resumeData.userEducation = resumeData.userEducation.slice(0, -1);
       forceUpdate();
     }
-  }
-
-  function handleEducationClick(educationItem) {
-    setEditEducation(educationItem);
   }
 
   return (
@@ -94,6 +112,7 @@ function MainComponents() {
             userWork={resumeData.userWork}
             updateWorkInfo={updateWorkInfo}
             removeWorkInfo={removeWorkInfo}
+            editWork={editWork}
           />
         </section>
       </div>
@@ -109,7 +128,10 @@ function MainComponents() {
             />
           </div>
           <div className="displayWork">
-            <DisplayWork resumeData={resumeData} />
+            <DisplayWork
+              resumeData={resumeData}
+              handleWorkClick={handleWorkClick}
+            />
           </div>
         </div>
       </div>

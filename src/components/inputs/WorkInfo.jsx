@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function WorkInfo({ userWork, updateWorkInfo, removeWorkInfo }) {
+function WorkInfo({ userWork, updateWorkInfo, removeWorkInfo, editWork }) {
   const [work, setWork] = useState({
     workKey: crypto.randomUUID(),
     workCompany: "",
@@ -9,6 +9,19 @@ function WorkInfo({ userWork, updateWorkInfo, removeWorkInfo }) {
     workEnd: "",
     workDuties: [],
   });
+
+  useEffect(() => {
+    if (editWork) {
+      setWork({
+        ...editWork,
+        // Ensure default values are set for editing
+        workCompany: editWork.workCompany || "Company Name",
+        workPosition: editWork.workPosition || "Work Title",
+        workStart: editWork.workStart || "Start Date",
+        workEnd: editWork.workEnd || "End Date",
+      });
+    }
+  }, [editWork]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -99,6 +112,7 @@ function WorkInfo({ userWork, updateWorkInfo, removeWorkInfo }) {
         onChange={handleChange}
         placeholder="End Date"
       />
+      <button type="submit">Save Work Experience</button>
       <button type="button" onClick={removeWorkItem} id="removeWorkItem">
         Remove Work Experience
       </button>
@@ -127,8 +141,6 @@ function WorkInfo({ userWork, updateWorkInfo, removeWorkInfo }) {
           ></input>
         ))}
       </div>
-      <p></p>
-      <button type="submit">Save Work Experience</button>
     </form>
   );
 }
