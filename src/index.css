@@ -60,17 +60,17 @@ section {
 }
 
 .generalSection {
-  background-color: grey;
+  background-color: black;
   border-radius: 4px;
 }
 
 .educationSection {
-  background-color: grey;
+  background-color: black;
   border-radius: 4px;
 }
 
 .workSection {
-  background-color: grey;
+  background-color: black;
   border-radius: 4px;
 }
 
@@ -84,6 +84,7 @@ section {
 
 .displayContainer {
   background-color: white;
+  border-radius: 4px;
   padding: 1rem;
 }
 
@@ -98,10 +99,6 @@ section {
   padding: 5px;
 }
 
-.displayGeneral:hover {
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-}
-
 .educationItem {
   transition: box-shadow 0.3s ease;
   padding: 5px;
@@ -109,6 +106,7 @@ section {
 
 .educationItem:hover {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .workItem {
@@ -118,4 +116,5 @@ section {
 
 .workItem:hover {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }

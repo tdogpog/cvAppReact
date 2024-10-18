@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function WorkInfo({ userWork, updateWorkInfo }) {
+function WorkInfo({ userWork, updateWorkInfo, removeWorkInfo }) {
   const [work, setWork] = useState({
     workKey: crypto.randomUUID(),
     workCompany: "",
@@ -53,6 +53,10 @@ function WorkInfo({ userWork, updateWorkInfo }) {
     }
   };
 
+  const removeWorkItem = () => {
+    removeWorkInfo();
+  };
+
   // grab the index of the responsiblitiy you're editing and its event value
   const handleDutyChange = (index, value) => {
     //get a map of the duties
@@ -95,6 +99,9 @@ function WorkInfo({ userWork, updateWorkInfo }) {
         onChange={handleChange}
         placeholder="End Date"
       />
+      <button type="button" onClick={removeWorkItem} id="removeWorkItem">
+        Remove Work Experience
+      </button>
       <div className="responsibilities">
         <h3>Work Responsibilites</h3>
         <button
@@ -121,7 +128,7 @@ function WorkInfo({ userWork, updateWorkInfo }) {
         ))}
       </div>
       <p></p>
-      <button type="submit">Add Work Experience</button>
+      <button type="submit">Save Work Experience</button>
     </form>
   );
 }

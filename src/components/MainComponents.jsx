@@ -20,6 +20,8 @@ function MainComponents() {
   // its centralized then cascaded
   const [dummyState, setDummyState] = useState(0);
 
+  const [editEducation, setEditEducation] = useState(null);
+
   const forceUpdate = () => {
     setDummyState((prev) => prev + 1);
   };
@@ -30,13 +32,44 @@ function MainComponents() {
   }
 
   function updateEducationInfo(updatedEducation) {
-    resumeData.userEducation.push(updatedEducation);
+    if (editEducation) {
+      const index = resumeData.userEducation.findIndex(
+        (education) => education.educationKey === editEducation.educationKey
+      );
+      //could cause issues, spread/direct write conflict
+      resumeData.userEducation[index] = {
+        ...resumeData.userEducation[index],
+
+        ...updatedEducation,
+      };
+    } else {
+      resumeData.userEducation.push(updatedEducation);
+    }
+    setEditEducation(null);
     forceUpdate();
   }
 
   function updateWorkInfo(updatedWork) {
     resumeData.userWork.push(updatedWork);
     forceUpdate();
+  }
+
+  function removeWorkInfo() {
+    if (resumeData.userWork.length > 1) {
+      resumeData.userWork = resumeData.userWork.slice(0, -1);
+      forceUpdate();
+    }
+  }
+
+  function removeEducationInfo() {
+    if (resumeData.userEducation.length > 1) {
+      resumeData.userEducation = resumeData.userEducation.slice(0, -1);
+      forceUpdate();
+    }
+  }
+
+  function handleEducationClick(educationItem) {
+    setEditEducation(educationItem);
   }
 
   return (
@@ -52,12 +85,15 @@ function MainComponents() {
           <EducationInfo
             userEducation={resumeData.userEducation}
             updateEducationInfo={updateEducationInfo}
+            removeEducationInfo={removeEducationInfo}
+            editEducation={editEducation}
           />
         </section>
         <section className="workSection">
           <WorkInfo
             userWork={resumeData.userWork}
             updateWorkInfo={updateWorkInfo}
+            removeWorkInfo={removeWorkInfo}
           />
         </section>
       </div>
@@ -67,7 +103,10 @@ function MainComponents() {
             <DisplayGeneral resumeData={resumeData} />
           </div>
           <div className="displayEducation">
-            <DisplayEducation resumeData={resumeData} />
+            <DisplayEducation
+              resumeData={resumeData}
+              handleEducationClick={handleEducationClick}
+            />
           </div>
           <div className="displayWork">
             <DisplayWork resumeData={resumeData} />

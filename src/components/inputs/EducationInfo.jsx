@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function EducationInfo({ userEducation, updateEducationInfo }) {
+function EducationInfo({
+  userEducation,
+  updateEducationInfo,
+  removeEducationInfo,
+  editEducation,
+}) {
   const [education, setEducation] = useState({
     educationName: "",
     educationStudied: "",
     educationGraduation: "",
     educationKey: crypto.randomUUID(),
   });
+
+  useEffect(() => {
+    if (editEducation) {
+      setEducation(editEducation);
+    }
+  }, [editEducation]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +34,10 @@ function EducationInfo({ userEducation, updateEducationInfo }) {
       educationGraduation: "",
       educationKey: crypto.randomUUID(),
     });
+  };
+
+  const removeEducationItem = () => {
+    removeEducationInfo();
   };
 
   return (
@@ -47,7 +62,14 @@ function EducationInfo({ userEducation, updateEducationInfo }) {
         placeholder="Graduation Date"
       />
 
-      <button type="submit">Add Education</button>
+      <button type="submit">Save Education</button>
+      <button
+        type="button"
+        onClick={removeEducationItem}
+        id="removeEducaitonItem"
+      >
+        Remove Education
+      </button>
     </form>
   );
 }
